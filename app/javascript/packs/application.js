@@ -14,3 +14,7 @@ ActiveStorage.start()
 
 // Tailwind CSS
 import "stylesheets/application"
+
+// Fontawesome 
+
+import "@fortawesome/fontawesome-free/css/all"
