@@ -1,2 +1,14 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<section class="bg-indigo-200 min-h-screen flex flex-col">
+<div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+<div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+<h2 class="mb-8 text-3xl text-center"> Login </h2>
+
+    <%= simple_form_for :session, :url=> sessions_path do |f| %>
+  <%= f.input :email, label: 'Email',  placeholder: 'user@domain.com', input_html: { class: 'block border border-grey-light w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, label_html: {class: "leading-loose font-sans mb-4"}  %>
+  <%= f.input :password, label: 'Password', hint: 'Mininum of 6 characters',hint_html: { class: 'py-1 px-1 text-blue-400' }, input_html: { class: 'block border border-grey-light w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, label_html: {class: "leading-loose font-sans mb-4"} %>
+  <%= f.button :submit ,'Login' , class: "w-full text-center py-3 rounded btn-secondary shadow text-white hover:bg-blue-800 focus:outline-none my-1 mt-3" %>
+<% end %>
+
+</div>
+ </div>
+</section>
