@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'carrierwave', '~> 2.2'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'mini_magick', '~> 4.11'
 
 gem 'simple_form', '~> 5.1'
 

@@ -1,0 +1,19 @@
+  <%= simple_form_for user, method: :patch do |f| %>
+  <%= f.error_notification %>
+
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li class="alert"><%= message %></li>
+    <% end %>
+  </ul>
+ 
+  <%= f.file_field :pic , input_html: { class: 'cursor-pointer absolute block opacity-0 pin-r pin-t'}, label: "Upload new Photo" %> <br>
+
+  <%= f.input :fullname,   placeholder: "Elon Musk", input_html: { class: 'block border border-grey-100 w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, wrapper: false, label_html: {class: "leading-loose font-sans mb-4"} %>
+  <%= f.input :email,  input_html: { class: 'block border border-grey-light w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, label_html: {class: "leading-loose font-sans mb-4"}  %>
+  <%= f.input :password, label: 'Password', hint: 'Mininum of 6 characters',hint_html: { class: 'py-1 px-1 text-blue-400' }, input_html: { class: 'block border border-grey-light w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, label_html: {class: "leading-loose font-sans mb-4"} %>
+  <%= f.input :bio, as: :text, label: "Bio" , placeholder: "I love tweeting about Sports", input_html: { class: 'block border border-grey-100 w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, wrapper: false, label_html: {class: "leading-loose font-sans mb-4"} %>
+  <%= f.input :city, label: "City" , placeholder: "Toronto", input_html: { class: 'block border border-grey-100 w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, wrapper: false, label_html: {class: "leading-loose font-sans mb-4"} %>
+  <%= f.input :address, label: "Country" , placeholder: "Canada", input_html: { class: 'block border border-grey-100 w-full p-3 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' }, wrapper: false, label_html: {class: "leading-loose font-sans mb-4"} %>
+  <%= f.button :submit ,'Update Profile' , class: "w-full text-center py-3 rounded btn-secondary shadow text-white hover:bg-blue-800 focus:outline-none my-1 mt-3" %>
+  <% end %>
