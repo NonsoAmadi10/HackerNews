@@ -22,4 +22,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Screen shots 
+  
+  ![User Interface](https://i.ibb.co/4jQ6BR4/Screenshot-3.png")
