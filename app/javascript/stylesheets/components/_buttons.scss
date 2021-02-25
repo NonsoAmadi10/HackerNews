@@ -29,6 +29,14 @@
       @apply bg-gray-800 text-gray-100;
     }
   }
+
+  .btn-green {
+    @apply bg-green-600 text-gray-100 shadow;
+  
+    &:hover, &:focus {
+      @apply bg-green-800 text-gray-100;
+    }
+  }
   
   .btn-destroy {
     @apply bg-red-600 border border-red-700 text-red-100;
