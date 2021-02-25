@@ -1,23 +1,24 @@
-# README
+# HACKR NEWS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an idea of how i feel the hackernews website should look and feel. Aestheticall pleasing web app with rich pixel perfect User Interface.
 
 Things you may want to cover:
 
 * Ruby version
+ - 2.5+
 
 * System dependencies
+  - Requires GraphicsMagick to handle image uploads
 
 * Configuration
+  - You only need rails 6.0+ to run this app in development environment
 
 * Database creation
+  - Connect to postgresql by listing your postgres url in an environment variable titled `DATABASE_URL`
 
 * Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+ - Simply Run `rails db:migrate` to setup database tables
+*
 
 * Deployment instructions
 
