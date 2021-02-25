@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }
   validates :pic, presence: true 
+  has_many :communities
 
   mount_uploader :pic, ImageUploader
 end

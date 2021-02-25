@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :communities
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   root "static#index"
