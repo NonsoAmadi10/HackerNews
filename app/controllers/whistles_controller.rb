@@ -1,0 +1,2 @@
+class WhistlesController < ApplicationController
+end

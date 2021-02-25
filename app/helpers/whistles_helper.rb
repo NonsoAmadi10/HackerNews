@@ -1,0 +1,2 @@
+module WhistlesHelper
+end
