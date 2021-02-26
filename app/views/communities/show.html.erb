@@ -13,18 +13,51 @@
         <!-- card body -->
         <div class="p-6 bg-white border-b border-gray-200">
             <!-- content goes here -->
-           <p> Topics so far </p>
+           <p class="text-center font-sans font-semibold font-lg"> Number of Discussions:  <%= @community.whistles.count%> </p>
         </div>
 
         <!-- card footer -->
         <div class="p-6 bg-white border-gray-200 text-right">
             <!-- button link -->
-            <a class="bg-blue-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-blue-400 rounded uppercase" 
-                href="#"> New Discussion</a>
+            <%= link_to "New Discussion", new_whistle_path, class:"bg-blue-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-blue-400 rounded uppercase" 
+                %> 
         </div>
     </div>
 </div>
 
+<% @community.whistles.each do |whistle| %>
+
+<div class="container mx-auto max-h-full h-full mt-5">
+    
+
+    <div class="px-6 py-8">
+        <div class="flex justify-between container mx-auto">
+            <div class="w-full lg:w-8/12">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-xl font-bold text-gray-700 md:text-2xl"> Discussions</h1>
+                </div>
+                <div class="mt-6 self-center">
+                    <div class="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
+                        <div class="flex justify-between items-center"><span class="font-light text-gray-600"> <%= time_ago_in_words(whistle.created_at)%></span><a href="#"
+                                class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500"> <%= whistle.community.name%></a>
+                        </div>
+                        <div class="mt-2"><a href="#" class="text-2xl text-gray-700 font-bold hover:underline"> <%= whistle.title %></a>
+                        </div>
+                        <div class="flex justify-between items-center mt-4"><a href="#"
+                                class="text-blue-500 hover:underline">Read more</a>
+                            <div class="flex">
+                                        <%=   image_tag(whistle.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+                                        <%= link_to "#{whistle.user.fullname}", user_path(whistle.user.id), class:"px-4 py-2 mt-2 text-md font-semibold text-gray-700 font-bold hover:underline" %>
+                
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
 
 
 

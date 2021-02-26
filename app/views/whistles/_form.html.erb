@@ -1,0 +1,22 @@
+  <%= simple_form_for @whistle, local:true  do |f| %>
+  <%= f.error_notification %>
+
+  <ul>
+    
+    <% @whistle.errors.full_messages.each do |message| %>
+    <li class="alert"><%= message %></li>
+    <% end %>
+  </ul>
+   
+  <%= f.input :title, input_html: { class: 'title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full focus:border-blue-300 ' }, wrapper: false, label_html: {class: "leading-loose font-sans mb-4 font-bold text-md"} %><br>
+ 
+  <%= f.rich_text_area :content , label: 'Content', placeholder: 'Whistle here'%> <br>
+  
+   <p class="font-bold font-sans text-md mb-2"> Cover Image Here:  <p> 
+  
+  <%= f.file_field :cover_image , input_html: { class: 'cursor-pointer  p-6 block opacity-0 pin-r pin-t'}, label: "Upload new Photo" %> <br>
+  
+  <%= f.association :community, collection: @community, input_html: { class: 'title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full focus:border-blue-300 ' }, wrapper: false, label_html: {class: "leading-loose font-sans mb-4 font-bold text-md"}%>
+
+  <%= f.button :submit ,'Update Profile' , class: "w-full text-center py-3 rounded btn-secondary shadow text-white hover:bg-blue-800 focus:outline-none my-1 mt-3" %>
+  <% end %>

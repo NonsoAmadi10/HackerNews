@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :communities, except: [:destroy, :edit, :update ]do
-         resources :whistles, except: [:destroy, :edit, :update]
-  end
+  resources :communities, except: [:destroy, :edit, :update ]
+  resources :whistles, except: [:destroy, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   root "static#index"
