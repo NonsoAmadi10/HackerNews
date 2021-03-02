@@ -8,7 +8,13 @@
 
     <p class="tracking-tight text-indigo-900 font-medium text-md mt-10 mb-8 sm:mt-14 sm:mb-10"> New and modern way to discuss your problem and get solution &#128516;</p>
  
-    <div class=""> <a href="#" class="font-medium  text-md mt-10 mb-8 sm:mt-14 sm:mb-10 btn-primary md:p-6 p-3 rounded-md shadow"> Get Started </a></div>
+    <div class=""> 
+    <% if logged_in? %> 
+    <a href="#" class="font-medium  text-md mt-10 mb-8 sm:mt-14 sm:mb-10 btn-outline-purple md:p-6 p-3 rounded-md "> See Latest Whistles </a> 
+    <% else %>
+    <a href="/sessions/new" class="font-medium  text-md mt-10 mb-8 sm:mt-14 sm:mb-10 btn-primary md:p-6 p-3 rounded-md shadow"> Get Started </a> 
+    <%end%>
+    </div>
     </div>
     <div class="md:w-1/2 p-3 flex justify-center align-items-center"> <p class="text-8xl"> 
             <%= image_tag "discuss.svg", alt: "schedule", width: 300, class: "mb-4 w-full" %>

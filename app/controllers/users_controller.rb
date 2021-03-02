@@ -7,10 +7,11 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        p @user
 
         respond_to do |format|
             if @user.save 
-                format.html { redirect_to sessions_path, notice: "Account creation successful, Kindly, Login!!"}
+                format.html { redirect_to new_session_path, notice: "Account creation successful, Kindly, Login!!"}
                 format.js
             else
                 format.html { redirect_to new_user_path, alert: "Error! Please try again." }

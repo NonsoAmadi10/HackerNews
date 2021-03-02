@@ -31,6 +31,7 @@ gem 'mini_magick', '~> 4.11'
 
 gem 'simple_form', '~> 5.1'
 
+gem 'acts_as_votable', '~> 0.13.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

@@ -5,5 +5,6 @@ class Whistle < ApplicationRecord
     validates :title, presence: true
     validates :title, uniqueness: true
     validates :cover_image, presence: true
+    acts_as_votable
     mount_uploader :cover_image, ImageUploader
 end

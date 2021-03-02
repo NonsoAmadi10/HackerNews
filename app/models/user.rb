@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }
-  validates :pic, presence: true 
   has_many :communities
   has_many :whistles
 
