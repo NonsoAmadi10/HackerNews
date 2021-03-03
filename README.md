@@ -1,8 +1,8 @@
-# HACKR NEWS
+# Whistle
 
 This is an idea of how i feel the hackernews website should look and feel. Aestheticall pleasing web app with rich pixel perfect User Interface.
 
-Things you may want to cover:
+URL : `https://whistle21.herokuapp.com` 
 
 * Ruby version
  - 2.5+
