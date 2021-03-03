@@ -10,7 +10,7 @@
  
     <div class=""> 
     <% if logged_in? %> 
-    <a href="#" class="font-medium  text-md mt-10 mb-8 sm:mt-14 sm:mb-10 btn-outline-purple md:p-6 p-3 rounded-md "> See Latest Whistles </a> 
+     <%= link_to 'See Latest Whistles', whistles_path, class:"font-medium  text-md mt-10 mb-8 sm:mt-14 sm:mb-10 btn-outline-purple md:p-6 p-3 rounded-md" %>
     <% else %>
     <a href="/sessions/new" class="font-medium  text-md mt-10 mb-8 sm:mt-14 sm:mb-10 btn-primary md:p-6 p-3 rounded-md shadow"> Get Started </a> 
     <%end%>

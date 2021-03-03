@@ -61,6 +61,8 @@
       Dislike
       <%= whistle.get_downvotes.size %>
        <% end %>
+
+       <p class="text-blue-500  m-4 border-0 shadow-0"> <%= whistle.comments.count%> Comments</p>
                              </div>
                             <div class="flex">
                                         <%=   image_tag(whistle.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>

@@ -21,4 +21,19 @@
 <p class="px-5 py-4"> <%= @whistle.content%> </p>
 </div>
 </section>
+<br>
+<section class="mt-4">
+	<div class="container mx-auto">
+		<h2 class="mb-4 text-lg font-semibold text-gray-900"><strong><%= @whistle.comments.count %></strong> Comments</h2>
+		<% if @whistle.comments.count > 0 %>
+    <%= render @whistle.comments %>
+    <% end %>
+    <br>
+		<div class="comment-form">
+			<hr />
+			<h3 class="px-3 py-11 text-blue-400">Comment as <%= current_user.fullname %></h3>
+	 		<%= render 'comments/form' %>
+		</div>
+	</div>
+</section>
 

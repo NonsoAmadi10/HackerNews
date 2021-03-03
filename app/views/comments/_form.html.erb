@@ -1,0 +1,19 @@
+
+
+<%= simple_form_for([@whistle, @whistle.comments.build]) do |f| %>
+<!--
+collection.build(attributes = {}, …) Returns one or more new objects of the collection type that have been instantiated with attributes and linked to this object through a foreign key, but have not yet been saved. Note: This only works if an associated object already exists, not if it‘s nil!
+-->
+
+ <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+<div class="field">
+  <div class="control">
+    <%= f.input :body, input_html: { class: 'resize border rounded-md block border border-grey-100 w-full p-8 h-6/12 rounded mb-4 focus:outline-none focus:ring focus:border-blue-300 ' },  label_html: { class: 'leading-loose font-sans mb-4' }  %>
+  </div>
+</div>
+<%= f.button :submit, 'Leave a Comment', class: "btn-primary bg-indigo-400" %>
+<% end %>
+

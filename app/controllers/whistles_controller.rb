@@ -5,6 +5,12 @@ class WhistlesController < ApplicationController
     def new
         @whistle = Whistle.new
         @community = Community.all
+
+    end
+
+    def index
+        @whistles = Whistle.all
+        @users = User.all
     end
     def create
         @whistle = Whistle.new(whistle_params)
@@ -22,6 +28,7 @@ class WhistlesController < ApplicationController
     end
 
     def show
+        @comment = @whistle.comments.build
     end
 
     def upvote

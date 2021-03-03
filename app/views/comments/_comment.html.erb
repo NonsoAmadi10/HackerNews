@@ -1,0 +1,20 @@
+<div class="antialiased  max-w-screen-lg mb-2">
+  
+
+  <div class="space-y-4">
+
+    <div class="flex">
+      <div class="flex-shrink-0 mr-3">
+        <%= image_tag(comment.whistle.user.pic.url, alt: 'Pic', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+      </div>
+      <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+        <strong><%= comment.whistle.user.fullname %></strong> <span class="text-xs text-gray-400"><%= comment&.created_at&.strftime('%B %e, %Y') %></span>
+        <p class="text-md">
+          <%= comment.body%>
+        </p>
+      </div>
+    </div>
+
+   
+  </div>
+</div>

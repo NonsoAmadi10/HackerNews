@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  
   resources :communities, except: [:destroy, :edit, :update ]
   resources :whistles, except: [:destroy, :edit, :update] do 
+      resources :comments, except: [:destroy, :edit, :update, :new, :show]
     member do
       put "like", to: "whistles#upvote"
       put "dislike", to: "whistles#downvote"

@@ -1,0 +1,112 @@
+<div class="bg-gray-100 overflow-x-hidden">
+
+    <div class="px-6 py-8">
+        <div class="flex justify-between container mx-auto">
+            <div class="w-full lg:w-8/12">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Whistle</h1>
+                    <div>
+                        <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <option>Latest</option>
+                            <option>Last Week</option>
+                        </select>
+                    </div>
+                </div>
+               <% @whistles.each do |whistle| %>
+                <div class="mt-6 m-3 self-center">
+                    <div class="max-w-4xl px-7 py-6 bg-white border border-gray-100 rounded-lg shadow-md">
+                        <div class="flex justify-between items-center"><span class="font-light text-gray-600"> Whistled <%= time_ago_in_words(whistle.created_at)%> ago</span>
+                        
+                        <a href="#"
+                                class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500"> <%= whistle.community.name%></a>
+                        </div>
+                        <div class="mt-2">
+                        <%= link_to "#{whistle.title}", whistle_path(whistle.id), class:"text-2xl text-gray-700 font-bold hover:underline" %>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                        <%= link_to "Read more", whistle_path(whistle.id) ,class: "text-blue-500 hover:underline"%>
+                            <div class="flex justify-between">
+                            <%= link_to like_whistle_path(whistle), method: :put, class: "btn btn-default m-2" do %>
+      <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+      Like
+      <%= whistle.get_upvotes.size %>
+      <% end %>
+
+      <%= link_to dislike_whistle_path(whistle), method: :put, class: "btn btn-default m-2" do %>
+    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+      Dislike
+      <%= whistle.get_downvotes.size %>
+       <% end %>
+
+       <p class="text-blue-500  m-4 border-0 shadow-0"> <%= whistle.comments.count%> Comments</p>
+                             </div>
+                            <div class="flex">
+                                        <%=   image_tag(whistle.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+                                        <%= link_to "#{whistle.user.fullname}", user_path(whistle.user.id), class:"px-4 py-2 mt-2 text-md font-semibold text-gray-700 font-bold hover:underline" %>
+                
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <%end%>  
+            </div>
+            <div class="-mx-8 w-4/12 hidden lg:block">
+                <div class="px-8">
+                    <h1 class="mb-4 text-xl font-bold text-gray-700">Whistlers</h1>
+                    <div class="flex flex-col bg-white max-w-sm px-6 py-4 mx-auto rounded-lg shadow-md">
+                        <ul class="-mx-4">
+
+                        <% @users.each do |user| %>
+                            <li class="flex items-center py-4">
+                             <%=   gravatar_image_tag(user.email, :class=> 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+                            
+                                <p><a href="#" class="text-gray-700 font-bold mx-1 hover:underline"><%= user.fullname %></a>
+                                <span class="text-gray-700 text-sm font-light">whistled <%= user.whistles.count%> times</span></p>
+                            </li>
+
+                        <% end %>   
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-10 px-8">
+                    <h1 class="mb-4 text-xl font-bold text-gray-700">Categories</h1>
+                    <div class="flex flex-col bg-white px-4 py-6 max-w-sm mx-auto rounded-lg shadow-md">
+                        <ul>
+                            <li><a href="#" class="text-gray-700 font-bold mx-1 hover:text-gray-600 hover:underline">-
+                                    AWS</a></li>
+                            <li class="mt-2"><a href="#"
+                                    class="text-gray-700 font-bold mx-1 hover:text-gray-600 hover:underline">-
+                                    Laravel</a></li>
+                            <li class="mt-2"><a href="#"
+                                    class="text-gray-700 font-bold mx-1 hover:text-gray-600 hover:underline">- Vue</a>
+                            </li>
+                            <li class="mt-2"><a href="#"
+                                    class="text-gray-700 font-bold mx-1 hover:text-gray-600 hover:underline">-
+                                    Design</a></li>
+                            <li class="flex items-center mt-2"><a href="#"
+                                    class="text-gray-700 font-bold mx-1 hover:text-gray-600 hover:underline">-
+                                    Django</a></li>
+                            <li class="flex items-center mt-2"><a href="#"
+                                    class="text-gray-700 font-bold mx-1 hover:text-gray-600 hover:underline">- PHP</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-10 px-8">
+                    <h1 class="mb-4 text-xl font-bold text-gray-700">Recent Post</h1>
+                    <div class="flex flex-col bg-white px-8 py-6 max-w-sm mx-auto rounded-lg shadow-md">
+                        <div class="flex justify-center items-center"><a href="#"
+                                class="px-2 py-1 bg-gray-600 text-sm text-green-100 rounded hover:bg-gray-500"><%= @whistles.last.community.name %></a>
+                        </div>
+                        <div class="mt-4"><a href="#" class="text-lg text-gray-700 font-medium hover:underline"> <%= @whistles.last.title%></a></div>
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center"><%= image_tag(@whistles.last.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block')  %><a href="#"
+                                    class="text-gray-700 text-sm mx-3 hover:underline"><%= @whistles.last.user.fullname %></a></div><span
+                                class="font-light text-sm text-gray-600"><%= @whistles.last.created_at.to_date%></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
