@@ -41,7 +41,11 @@
        <p class="text-blue-500  m-4 border-0 shadow-0"> <%= whistle.comments.count%> Comments</p>
                              </div>
                             <div class="flex">
+                                        <% if whistle.user.pic.url %>
                                         <%=   image_tag(whistle.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+                                        <% else %>
+                                                <%= gravatar_image_tag(whistle.user.email, :class=> 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block' )%>
+                                        <% end %>
                                         <%= link_to "#{whistle.user.fullname}", user_path(whistle.user.id), class:"px-4 py-2 mt-2 text-md font-semibold text-gray-700 font-bold hover:underline" %>
                 
                                 </div>
@@ -100,7 +104,13 @@
                         </div>
                         <div class="mt-4"><a href="#" class="text-lg text-gray-700 font-medium hover:underline"> <%= @whistles.last.title%></a></div>
                         <div class="flex justify-between items-center mt-4">
-                            <div class="flex items-center"><%= image_tag(@whistles.last.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block')  %><a href="#"
+                            <div class="flex items-center">
+                             <% if @whistles.last.user.pic.url %>
+                                        <%=   image_tag(@whistles.last.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+                                        <% else %>
+                                                <%= gravatar_image_tag(@whistles.last.user.email, :class=> 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block' )%>
+                                        <% end %>
+                            <a href="#"
                                     class="text-gray-700 text-sm mx-3 hover:underline"><%= @whistles.last.user.fullname %></a></div><span
                                 class="font-light text-sm text-gray-600"><%= @whistles.last.created_at.to_date%></span>
                         </div>

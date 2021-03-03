@@ -65,7 +65,11 @@
        <p class="text-blue-500  m-4 border-0 shadow-0"> <%= whistle.comments.count%> Comments</p>
                              </div>
                             <div class="flex">
+                                       <% if whistle.user.pic.url %>
                                         <%=   image_tag(whistle.user.pic.url, alt: 'Profile', class: 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block') %>
+                                        <% else %>
+                                                <%= gravatar_image_tag(whistle.user.email, :class=> 'mx-4 w-10 h-10 object-cover rounded-full hidden sm:block' )%>
+                                        <% end %>
                                         <%= link_to "#{whistle.user.fullname}", user_path(whistle.user.id), class:"px-4 py-2 mt-2 text-md font-semibold text-gray-700 font-bold hover:underline" %>
                 
                                 </div>
